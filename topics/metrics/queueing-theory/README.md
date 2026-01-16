@@ -13,6 +13,14 @@ https://github.com/joelparkerhenderson/queueing-theory
 - Software engineering perspective with top 4 metrics.
 ```
 
+## Claude Opus 1080p
+
+![Claude Opus 1080p](claude-opus-1080p.png)
+
+## Gemini Nano Banana
+
+![Gemini Nano Banana](gemini-nano-banana.png)
+
 ## QUEUEING THEORY METRICS
 
 Contents

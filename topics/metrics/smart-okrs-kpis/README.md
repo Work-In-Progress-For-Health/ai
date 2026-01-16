@@ -4,8 +4,9 @@ THIS PAGE IS AI GENERATED. THIS IS FAKE NOT REAL.
 
 ## AI prompt
 
-```sh
-Create SMART OKRs KPIs with metrics for DHCW:
+```txt
+Create SMART OKRs KPIs with metrics for DHCW.
+https://github.com/joelparkerhenderson/smart-okrs-kpis
 - SMART: Specific, Measurable, Actionable, Relevant, Timely
 - OKRs: Objectives and Key Results
 - KPIs: Key Performance Indicators
@@ -13,6 +14,14 @@ Format:
 - Create plain text that is easy for people to read. 
 - Do not create source code.
 ```
+
+## Claude Opus 1080p
+
+![Claude Opus 1080p](claude-opus-1080p.png)
+
+## Gemini Nano Banana
+
+![Gemini Nano Banana](gemini-nano-banana.png)
 
 ## OBJECTIVES AND KEY RESULTS (OKRs)
 

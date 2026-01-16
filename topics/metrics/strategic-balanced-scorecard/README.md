@@ -4,13 +4,22 @@ THIS PAGE IS AI GENERATED. THIS IS FAKE NOT REAL.
 
 ## AI prompt
 
-```sh
+```txt
 Create a strategic balanced scorecard for NHS Wales DHCW.
+https://github.com/joelparkerhenderson/strategic-balanced-scorecard
 - Financial perspective with top 4 metrics.
 - External perspective with top 4 metrics.
 - Internal perspective with top 4 metrics.
 - Learning perspective with top 4 metrics.
 ```
+
+## Claude Opus 1080p
+
+![Claude Opus 1080p](claude-opus-1080p.png)
+
+## Gemini Nano Banana
+
+![Gemini Nano Banana](gemini-nano-banana.png)
 
 ## EXECUTIVE SUMMARY
 

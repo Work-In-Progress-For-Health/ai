@@ -205,200 +205,189 @@ Accessibility
 - Requirement:  Switch flow meets WCAG 2.1 AA standards
 - Measurement:  Accessibility audit
 
-================================================================================
-4. USER STORIES
-================================================================================
+## USER STORIES
 
-4.1 Epic: Fast User Switching
------------------------------
+### 4.1 Epic: Fast User Switching
 
 EPIC-001: As a clinician, I can switch to my own user account without losing 
 my in-progress work, so that I can complete clinical tasks efficiently.
 
---------------------------------------------------------------------------------
-USER STORY 1: View Current Identity
---------------------------------------------------------------------------------
+#### USER STORY 1: View Current Identity
 
-ID:           US-001
-Title:        As a clinician, I can see which user I am currently signed in as
-Priority:     Must Have
-Points:       3
+- ID:           US-001
+- Title:        As a clinician, I can see which user I am currently signed in as
+- Priority:     Must Have
+- Points:       3
 
 Description:
-As a clinician filling out a clinical form, I need to clearly see which user 
+- As a clinician filling out a clinical form, I need to clearly see which user 
 account I am currently signed in as, so that I can verify my identity before 
 submitting clinical requests.
 
 Acceptance Criteria:
-  AC-001.1: Current user's full name is displayed in the form header
-  AC-001.2: Current user's role (e.g., "Consultant", "Registrar") is displayed
-  AC-001.3: User identity is visible without scrolling on any form
-  AC-001.4: Visual styling distinguishes the identity from other form elements
-  AC-001.5: Identity display updates immediately after user switch
+- AC-001.1: Current user's full name is displayed in the form header
+- AC-001.2: Current user's role (e.g., "Consultant", "Registrar") is displayed
+- AC-001.3: User identity is visible without scrolling on any form
+- AC-001.4: Visual styling distinguishes the identity from other form elements
+- AC-001.5: Identity display updates immediately after user switch
 
 Test Automation Steps:
-  GIVEN I am signed in as "Dr. Jane Smith, Consultant"
-  AND I am on the electronic test request form
-  WHEN the form loads
-  THEN I see "Dr. Jane Smith" displayed in the form header
-  AND I see "Consultant" displayed as the role
-  AND the identity display is visible without scrolling
+- GIVEN I am signed in as "Dr. Jane Smith, Consultant"
+- AND I am on the electronic test request form
+- WHEN the form loads
+- THEN I see "Dr. Jane Smith" displayed in the form header
+- AND I see "Consultant" displayed as the role
+- AND the identity display is visible without scrolling
   
-  GIVEN I switch user from "Dr. Jane Smith" to "Dr. John Doe"
-  WHEN the switch completes successfully
-  THEN the identity display updates to "Dr. John Doe"
-  AND the role updates to reflect Dr. John Doe's role
+- GIVEN I switch user from "Dr. Jane Smith" to "Dr. John Doe"
+- WHEN the switch completes successfully
+- THEN the identity display updates to "Dr. John Doe"
+- AND the role updates to reflect Dr. John Doe's role
 
---------------------------------------------------------------------------------
-USER STORY 2: Initiate User Switch
---------------------------------------------------------------------------------
+### USER STORY 2: Initiate User Switch
 
-ID:           US-002
-Title:        As a clinician, I can initiate a user switch from a clinical form
-Priority:     Must Have
-Points:       5
+- ID:           US-002
+- Title:        As a clinician, I can initiate a user switch from a clinical form
+- Priority:     Must Have
+- Points:       5
 
 Description:
-As a clinician who notices I am signed in as the wrong user, I need to be able 
+- As a clinician who notices I am signed in as the wrong user, I need to be able 
 to switch to my own account without navigating away from my current work, so 
 that I can correct the identity issue quickly.
 
 Acceptance Criteria:
-  AC-002.1: "Switch User" button is visible on clinical forms
-  AC-002.2: "Switch User" button is accessible within 1 click from any field
-  AC-002.3: Clicking "Switch User" opens the authentication dialog
-  AC-002.4: Form data remains visible (but disabled) during switch
-  AC-002.5: Authentication dialog supports smartcard and password methods
+- AC-002.1: "Switch User" button is visible on clinical forms
+- AC-002.2: "Switch User" button is accessible within 1 click from any field
+- AC-002.3: Clicking "Switch User" opens the authentication dialog
+- AC-002.4: Form data remains visible (but disabled) during switch
+- AC-002.5: Authentication dialog supports smartcard and password methods
 
 Test Automation Steps:
-  GIVEN I am signed in as "Dr. Jane Smith"
-  AND I am on the electronic test request form
-  AND I have entered data in the "Test Type" field
-  WHEN I look at the form interface
-  THEN I see a "Switch User" button in the form header
+- GIVEN I am signed in as "Dr. Jane Smith"
+- AND I am on the electronic test request form
+- AND I have entered data in the "Test Type" field
+- WHEN I look at the form interface
+- THEN I see a "Switch User" button in the form header
   
-  GIVEN I have entered data in multiple form fields
-  WHEN I click the "Switch User" button
-  THEN an authentication dialog appears
-  AND the form remains visible behind the dialog
-  AND all my entered data is still present in the form fields
-  AND the form fields are disabled during authentication
+- GIVEN I have entered data in multiple form fields
+- WHEN I click the "Switch User" button
+- THEN an authentication dialog appears
+- AND the form remains visible behind the dialog
+- AND all my entered data is still present in the form fields
+- AND the form fields are disabled during authentication
   
-  GIVEN the authentication dialog is open
-  WHEN I view the dialog
-  THEN I see an option to authenticate via smartcard
-  AND I see an option to authenticate via password
+- GIVEN the authentication dialog is open
+- WHEN I view the dialog
+- THEN I see an option to authenticate via smartcard
+- AND I see an option to authenticate via password
 
---------------------------------------------------------------------------------
-USER STORY 3: Authenticate via Smartcard
---------------------------------------------------------------------------------
+#### USER STORY 3: Authenticate via Smartcard
 
-ID:           US-003
-Title:        As a clinician, I can re-authenticate using my NHS smartcard
-Priority:     Should Have
-Points:       5
+- ID:           US-003
+- Title:        As a clinician, I can re-authenticate using my NHS smartcard
+- Priority:     Should Have
+- Points:       5
 
 Description:
-As a clinician switching users, I need to be able to authenticate quickly using 
+- As a clinician switching users, I need to be able to authenticate quickly using 
 my NHS smartcard, so that I can complete the switch in minimal time.
 
 Acceptance Criteria:
-  AC-003.1: Authentication dialog displays smartcard prompt
-  AC-003.2: System detects smartcard insertion/tap within 2 seconds
-  AC-003.3: Smartcard PIN entry is supported
-  AC-003.4: Successful authentication completes switch
-  AC-003.5: Authentication error displays clear message with retry option
+- AC-003.1: Authentication dialog displays smartcard prompt
+- AC-003.2: System detects smartcard insertion/tap within 2 seconds
+- AC-003.3: Smartcard PIN entry is supported
+- AC-003.4: Successful authentication completes switch
+- AC-003.5: Authentication error displays clear message with retry option
 
 Test Automation Steps:
-  GIVEN the authentication dialog is open
-  AND I have my NHS smartcard ready
-  WHEN I tap or insert my smartcard
-  THEN the system detects the card within 2 seconds
-  AND I am prompted to enter my PIN
+- GIVEN the authentication dialog is open
+- AND I have my NHS smartcard ready
+- WHEN I tap or insert my smartcard
+- THEN the system detects the card within 2 seconds
+- AND I am prompted to enter my PIN
   
-  GIVEN I have tapped my smartcard
-  AND I am prompted for PIN
-  WHEN I enter my correct PIN
-  THEN authentication succeeds
-  AND the dialog closes
-  AND the form updates to show my identity
-  AND my entered form data is preserved
-  AND the form fields are re-enabled
+- GIVEN I have tapped my smartcard
+- AND I am prompted for PIN
+- WHEN I enter my correct PIN
+- THEN authentication succeeds
+- AND the dialog closes
+- AND the form updates to show my identity
+- AND my entered form data is preserved
+- AND the form fields are re-enabled
   
-  GIVEN I have tapped my smartcard
-  AND I am prompted for PIN
-  WHEN I enter an incorrect PIN
-  THEN an error message displays "Incorrect PIN. Please try again."
-  AND I can retry PIN entry
-  AND after 3 failed attempts, I am offered password fallback
+- GIVEN I have tapped my smartcard
+- AND I am prompted for PIN
+- WHEN I enter an incorrect PIN
+- THEN an error message displays "Incorrect PIN. Please try again."
+- AND I can retry PIN entry
+- AND after 3 failed attempts, I am offered password fallback
 
---------------------------------------------------------------------------------
-USER STORY 4: Authenticate via Password
---------------------------------------------------------------------------------
+#### USER STORY 4: Authenticate via Password
 
-ID:           US-004
-Title:        As a clinician, I can re-authenticate using my password
-Priority:     Must Have
-Points:       3
+- ID:           US-004
+- Title:        As a clinician, I can re-authenticate using my password
+- Priority:     Must Have
+- Points:       3
 
 Description:
 As a clinician without my smartcard available, I need to be able to authenticate 
 using my username and password, so that I can still complete the user switch.
 
 Acceptance Criteria:
-  AC-004.1: Password option is available on authentication dialog
-  AC-004.2: Username field pre-populated if known (e.g., from previous sessions)
-  AC-004.3: Password field has secure entry (masked characters)
-  AC-004.4: Successful authentication completes switch
-  AC-004.5: Failed authentication allows retry with clear error message
+- AC-004.1: Password option is available on authentication dialog
+- AC-004.2: Username field pre-populated if known (e.g., from previous sessions)
+- AC-004.3: Password field has secure entry (masked characters)
+- AC-004.4: Successful authentication completes switch
+- AC-004.5: Failed authentication allows retry with clear error message
 
 Test Automation Steps:
-  GIVEN the authentication dialog is open
-  WHEN I select the password authentication option
-  THEN I see username and password input fields
+- GIVEN the authentication dialog is open
+- WHEN I select the password authentication option
+- THEN I see username and password input fields
   
-  GIVEN I see the password authentication form
-  AND the username field shows "john.doe@wales.nhs.uk"
-  WHEN I enter my correct password
-  AND I click "Sign In"
-  THEN authentication succeeds within 5 seconds
-  AND the dialog closes
-  AND my identity is updated in the form header
-  AND my entered form data is preserved
+- GIVEN I see the password authentication form
+- AND the username field shows "john.doe@wales.nhs.uk"
+- WHEN I enter my correct password
+- AND I click "Sign In"
+- THEN authentication succeeds within 5 seconds
+- AND the dialog closes
+- AND my identity is updated in the form header
+- AND my entered form data is preserved
   
-  GIVEN I see the password authentication form
-  WHEN I enter an incorrect password
-  AND I click "Sign In"
-  THEN an error message displays "Incorrect password. Please try again."
-  AND the password field is cleared
-  AND I can retry
+- GIVEN I see the password authentication form
+- WHEN I enter an incorrect password
+- AND I click "Sign In"
+- THEN an error message displays "Incorrect password. Please try again."
+- AND the password field is cleared
+- AND I can retry
 
 --------------------------------------------------------------------------------
 USER STORY 5: Preserve Form Data During Switch
 --------------------------------------------------------------------------------
 
-ID:           US-005
-Title:        As a clinician, my form data is preserved during user switch
-Priority:     Must Have
-Points:       8
+- ID:           US-005
+- Title:        As a clinician, my form data is preserved during user switch
+- Priority:     Must Have
+- Points:       8
 
 Description:
-As a clinician who has entered data into a clinical form, I need all my entered 
+- As a clinician who has entered data into a clinical form, I need all my entered 
 data to be preserved when I switch users, so that I don't have to re-enter 
 information.
 
 Acceptance Criteria:
-  AC-005.1: All text field values are preserved
-  AC-005.2: All dropdown selections are preserved
-  AC-005.3: All checkbox/radio selections are preserved
-  AC-005.4: All date/time values are preserved
-  AC-005.5: Attached files/documents are preserved
-  AC-005.6: Clinical notes and free-text are preserved
-  AC-005.7: Patient context (selected patient) is preserved
+- AC-005.1: All text field values are preserved
+- AC-005.2: All dropdown selections are preserved
+- AC-005.3: All checkbox/radio selections are preserved
+- AC-005.4: All date/time values are preserved
+- AC-005.5: Attached files/documents are preserved
+- AC-005.6: Clinical notes and free-text are preserved
+- AC-005.7: Patient context (selected patient) is preserved
 
 Test Automation Steps:
-  GIVEN I am on the electronic test request form
-  AND I have entered the following data:
+- GIVEN I am on the electronic test request form
+- AND I have entered the following data:
     | Field               | Value                           |
     | Patient             | NHS No: 123-456-7890            |
     | Test Type           | Full Blood Count                |
@@ -406,123 +395,117 @@ Test Automation Steps:
     | Clinical Notes      | "Patient presenting with..."    |
     | Fasting Required    | Yes (checkbox)                  |
     | Requested Date      | 2026-01-20                      |
-  WHEN I initiate a user switch
-  AND I authenticate successfully as a different user
-  THEN all the above field values remain exactly as entered
-  AND the patient context is unchanged
-  AND no validation errors appear due to the switch
+- WHEN I initiate a user switch
+- AND I authenticate successfully as a different user
+- THEN all the above field values remain exactly as entered
+- AND the patient context is unchanged
+- AND no validation errors appear due to the switch
   
-  GIVEN I have attached a clinical document to the request
-  WHEN I complete a user switch
-  THEN the attached document is still present
-  AND I can view the document details
+- GIVEN I have attached a clinical document to the request
+- WHEN I complete a user switch
+- THEN the attached document is still present
+- AND I can view the document details
 
---------------------------------------------------------------------------------
-USER STORY 6: Cancel User Switch
---------------------------------------------------------------------------------
+#### USER STORY 6: Cancel User Switch
 
-ID:           US-006
-Title:        As a clinician, I can cancel a user switch in progress
-Priority:     Must Have
-Points:       2
+- ID:           US-006
+- Title:        As a clinician, I can cancel a user switch in progress
+- Priority:     Must Have
+- Points:       2
 
 Description:
-As a clinician who initiated a user switch by mistake, I need to be able to 
+- As a clinician who initiated a user switch by mistake, I need to be able to 
 cancel and return to my original session, so that I can continue working 
 without disruption.
 
 Acceptance Criteria:
-  AC-006.1: Cancel button visible on authentication dialog
-  AC-006.2: Clicking Cancel closes the dialog
-  AC-006.3: Original session remains active
-  AC-006.4: Form data is unchanged after cancel
-  AC-006.5: No audit event logged for cancelled switch
+- AC-006.1: Cancel button visible on authentication dialog
+- AC-006.2: Clicking Cancel closes the dialog
+- AC-006.3: Original session remains active
+- AC-006.4: Form data is unchanged after cancel
+- AC-006.5: No audit event logged for cancelled switch
 
 Test Automation Steps:
-  GIVEN I have clicked "Switch User"
-  AND the authentication dialog is open
-  AND I am still signed in as "Dr. Jane Smith"
-  WHEN I click the "Cancel" button
-  THEN the authentication dialog closes
-  AND I remain signed in as "Dr. Jane Smith"
-  AND all my form data is unchanged
-  AND form fields are re-enabled
-  AND I can continue editing the form
+- GIVEN I have clicked "Switch User"
+- AND the authentication dialog is open
+- AND I am still signed in as "Dr. Jane Smith"
+- WHEN I click the "Cancel" button
+- THEN the authentication dialog closes
+- AND I remain signed in as "Dr. Jane Smith"
+- AND all my form data is unchanged
+- AND form fields are re-enabled
+- AND I can continue editing the form
   
-  GIVEN I have started entering smartcard PIN
-  WHEN I click "Cancel"
-  THEN the switch is aborted
-  AND my original session continues
+- GIVEN I have started entering smartcard PIN
+- WHEN I click "Cancel"
+- THEN the switch is aborted
+- AND my original session continues
 
---------------------------------------------------------------------------------
-USER STORY 7: Identity Mismatch Warning at Submission
---------------------------------------------------------------------------------
+#### USER STORY 7: Identity Mismatch Warning at Submission
 
-ID:           US-007
-Title:        As a clinician, I am warned if submitting under wrong identity
-Priority:     Must Have
-Points:       5
+- ID:           US-007
+- Title:        As a clinician, I am warned if submitting under wrong identity
+- Priority:     Must Have
+- Points:       5
 
 Description:
-As a clinician submitting a test request, I need the system to warn me if I am 
+- As a clinician submitting a test request, I need the system to warn me if I am 
 about to submit under a different user's identity, so that I can switch to my 
 own account before submission.
 
 Acceptance Criteria:
-  AC-007.1: System compares session user to requestor field
-  AC-007.2: Warning dialog appears if mismatch detected
-  AC-007.3: Warning clearly explains the identity mismatch
-  AC-007.4: User can choose to switch user from warning dialog
-  AC-007.5: User can choose to cancel submission
-  AC-007.6: User cannot proceed with submission under wrong identity
+- AC-007.1: System compares session user to requestor field
+- AC-007.2: Warning dialog appears if mismatch detected
+- AC-007.3: Warning clearly explains the identity mismatch
+- AC-007.4: User can choose to switch user from warning dialog
+- AC-007.5: User can choose to cancel submission
+- AC-007.6: User cannot proceed with submission under wrong identity
 
 Test Automation Steps:
-  GIVEN I am signed in as "Dr. Jane Smith"
-  AND I have entered a test request with requestor "Dr. John Doe"
-  WHEN I click "Submit"
-  THEN a warning dialog appears before submission
-  AND the dialog states "You are signed in as Dr. Jane Smith but this 
+- GIVEN I am signed in as "Dr. Jane Smith"
+- AND I have entered a test request with requestor "Dr. John Doe"
+- WHEN I click "Submit"
+- THEN a warning dialog appears before submission
+- AND the dialog states "You are signed in as Dr. Jane Smith but this 
       request will be submitted as Dr. John Doe"
-  AND I see a "Switch to my account" button
-  AND I see a "Cancel" button
-  AND there is no option to proceed with mismatched identity
+- AND I see a "Switch to my account" button
+- AND I see a "Cancel" button
+- AND there is no option to proceed with mismatched identity
   
-  GIVEN the identity mismatch warning is displayed
-  WHEN I click "Switch to my account"
-  THEN the authentication dialog opens
-  AND after successful authentication, the request is submitted
+- GIVEN the identity mismatch warning is displayed
+- WHEN I click "Switch to my account"
+- THEN the authentication dialog opens
+- AND after successful authentication, the request is submitted
 
---------------------------------------------------------------------------------
-USER STORY 8: Audit Trail for User Switches
---------------------------------------------------------------------------------
+#### USER STORY 8: Audit Trail for User Switches
 
-ID:           US-008
-Title:        As a compliance officer, user switches are logged for audit
-Priority:     Must Have
-Points:       5
+- ID:           US-008
+- Title:        As a compliance officer, user switches are logged for audit
+- Priority:     Must Have
+- Points:       5
 
 Description:
-As a compliance officer, I need all user switch events to be logged with full 
+- As a compliance officer, I need all user switch events to be logged with full 
 details, so that I can investigate any issues and maintain regulatory compliance.
 
 Acceptance Criteria:
-  AC-008.1: Successful switches logged with timestamp
-  AC-008.2: Previous user identity logged
-  AC-008.3: New user identity logged
-  AC-008.4: Patient context logged (NHS number)
-  AC-008.5: Form/action context logged
-  AC-008.6: Workstation identifier logged
-  AC-008.7: Switch method logged (smartcard/password)
-  AC-008.8: Failed switch attempts logged separately
+- AC-008.1: Successful switches logged with timestamp
+- AC-008.2: Previous user identity logged
+- AC-008.3: New user identity logged
+- AC-008.4: Patient context logged (NHS number)
+- AC-008.5: Form/action context logged
+- AC-008.6: Workstation identifier logged
+- AC-008.7: Switch method logged (smartcard/password)
+- AC-008.8: Failed switch attempts logged separately
 
 Test Automation Steps:
-  GIVEN a user switch occurs from "Dr. Jane Smith" to "Dr. John Doe"
-  AND the patient is NHS No: 123-456-7890
-  AND the form is "Electronic Test Request"
-  AND the workstation is "WS-WARD3-01"
-  AND the switch used smartcard authentication
-  WHEN I query the audit log
-  THEN I find a record with:
+- GIVEN a user switch occurs from "Dr. Jane Smith" to "Dr. John Doe"
+- AND the patient is NHS No: 123-456-7890
+- AND the form is "Electronic Test Request"
+- AND the workstation is "WS-WARD3-01"
+- AND the switch used smartcard authentication
+- WHEN I query the audit log
+- THEN I find a record with:
     | Field              | Value                    |
     | Timestamp          | 2026-01-15T14:32:45Z     |
     | Event Type         | USER_SWITCH_SUCCESS      |
@@ -533,88 +516,79 @@ Test Automation Steps:
     | Workstation        | WS-WARD3-01              |
     | Auth Method        | SMARTCARD                |
   
-  GIVEN a user switch fails due to incorrect password
-  WHEN I query the audit log
-  THEN I find a record with Event Type "USER_SWITCH_FAILED"
-  AND the failure reason is logged
+- GIVEN a user switch fails due to incorrect password
+- WHEN I query the audit log
+- THEN I find a record with Event Type "USER_SWITCH_FAILED"
+- AND the failure reason is logged
 
-================================================================================
-5. OKRs (OBJECTIVES AND KEY RESULTS)
-================================================================================
+## 5. OKRs (OBJECTIVES AND KEY RESULTS)
 
-5.1 Objective 1: Eliminate Lost Work from Identity Issues
----------------------------------------------------------
+### 5.1 Objective 1: Eliminate Lost Work from Identity Issues
 
 Objective:
-Eliminate clinical work loss caused by user identity mismatches in the Welsh 
+- Eliminate clinical work loss caused by user identity mismatches in the Welsh 
 Clinical Portal, improving clinician efficiency and system trust.
 
-Key Results:
+#### Key Results
 
 KR-1.1: Reduce abandoned test requests due to identity mismatch by 80%
-  Baseline:     ~200 abandoned requests per week (estimated)
-  Target:       <40 abandoned requests per week
-  Measurement:  Telemetry on form abandonment with identity mismatch flag
-  Timeline:     3 months post-launch
+- Baseline:     ~200 abandoned requests per week (estimated)
+- Target:       <40 abandoned requests per week
+- Measurement:  Telemetry on form abandonment with identity mismatch flag
+- Timeline:     3 months post-launch
 
 KR-1.2: Achieve 95% of user switches completing in under 10 seconds
-  Baseline:     N/A (new feature)
-  Target:       P95 switch duration <10 seconds
-  Measurement:  Telemetry on switch_duration metric
-  Timeline:     Launch + 1 month
+- Baseline:     N/A (new feature)
+- Target:       P95 switch duration <10 seconds
+- Measurement:  Telemetry on switch_duration metric
+- Timeline:     Launch + 1 month
 
 KR-1.3: Maintain 100% data preservation rate during user switches
-  Baseline:     N/A (new feature)
-  Target:       Zero data loss incidents
-  Measurement:  QA testing, production error monitoring
-  Timeline:     Continuous
+- Baseline:     N/A (new feature)
+- Target:       Zero data loss incidents
+- Measurement:  QA testing, production error monitoring
+- Timeline:     Continuous
 
 KR-1.4: Achieve clinician satisfaction score of 4.0/5.0 for fast user switching
-  Baseline:     N/A (new feature)
-  Target:       ≥4.0/5.0
-  Measurement:  In-app feedback survey post-switch
-  Timeline:     3 months post-launch
+- Baseline:     N/A (new feature)
+- Target:       ≥4.0/5.0
+- Measurement:  In-app feedback survey post-switch
+- Timeline:     3 months post-launch
 
---------------------------------------------------------------------------------
-
-5.2 Objective 2: Improve Security and Compliance
-------------------------------------------------
+#### Objective 2: Improve Security and Compliance
 
 Objective:
-Ensure all clinical submissions are made under correct user identity with full 
+- Ensure all clinical submissions are made under correct user identity with full 
 audit trail, reducing compliance risk.
 
 Key Results:
 
 KR-2.1: Reduce submissions under incorrect identity to <0.1%
-  Baseline:     ~2% estimated (clinicians submitting as others "to save time")
-  Target:       <0.1%
-  Measurement:  Audit log analysis of submission user vs requestor
-  Timeline:     6 months post-launch
+- Baseline:     ~2% estimated (clinicians submitting as others "to save time")
+- Target:       <0.1%
+- Measurement:  Audit log analysis of submission user vs requestor
+- Timeline:     6 months post-launch
 
 KR-2.2: Achieve 100% audit coverage for user switch events
-  Baseline:     N/A (no current logging)
-  Target:       Every switch attempt logged (success and failure)
-  Measurement:  Audit log completeness review
-  Timeline:     Launch
+- Baseline:     N/A (no current logging)
+- Target:       Every switch attempt logged (success and failure)
+- Measurement:  Audit log completeness review
+- Timeline:     Launch
 
 KR-2.3: Pass security audit with zero critical findings related to fast switch
-  Baseline:     N/A (new feature)
-  Target:       Zero critical/high security findings
-  Measurement:  Independent security audit
-  Timeline:     Pre-launch gate
+- Baseline:     N/A (new feature)
+- Target:       Zero critical/high security findings
+- Measurement:  Independent security audit
+- Timeline:     Pre-launch gate
 
-================================================================================
-6. KPIs (KEY PERFORMANCE INDICATORS)
-================================================================================
+## KPIs (KEY PERFORMANCE INDICATORS)
 
-6.1 Primary KPIs
-----------------
+### Primary KPIs
 
 KPI-001: Switch Success Rate
   Definition:   Percentage of initiated user switches that complete successfully
   Formula:      (Successful Switches / Total Switch Attempts) × 100
-  Target:       ≥98%
+- Target:       ≥98%
   Frequency:    Real-time, reported daily
   Owner:        Product Manager
   Alert:        <95% triggers investigation
@@ -622,7 +596,7 @@ KPI-001: Switch Success Rate
 KPI-002: Switch Duration (P95)
   Definition:   95th percentile time from switch initiation to completion
   Formula:      P95(switch_end_time - switch_start_time)
-  Target:       <10 seconds
+- Target:       <10 seconds
   Frequency:    Real-time, reported daily
   Owner:        Technical Lead
   Alert:        >15 seconds triggers investigation
@@ -630,7 +604,7 @@ KPI-002: Switch Duration (P95)
 KPI-003: Data Preservation Rate
   Definition:   Percentage of switches with zero data loss
   Formula:      (Switches with full data preserved / Total switches) × 100
-  Target:       100%
+- Target:       100%
   Frequency:    Real-time, reported daily
   Owner:        QA Lead
   Alert:        <100% triggers immediate investigation
@@ -638,25 +612,24 @@ KPI-003: Data Preservation Rate
 KPI-004: Abandoned Form Reduction
   Definition:   Reduction in forms abandoned due to identity mismatch
   Formula:      (Baseline abandonment - Current abandonment) / Baseline × 100
-  Target:       80% reduction
+- Target:       80% reduction
   Frequency:    Weekly
   Owner:        Product Manager
   Alert:        <50% reduction at 2 months triggers review
 
-6.2 Secondary KPIs
-------------------
+### Secondary KPIs
 
 KPI-005: Authentication Method Distribution
   Definition:   Breakdown of switches by authentication method
   Formula:      Count by method (Smartcard, Password)
-  Target:       Informational (expect 70% smartcard, 30% password)
+- Target:       Informational (expect 70% smartcard, 30% password)
   Frequency:    Weekly
   Owner:        Technical Lead
 
 KPI-006: Switch Cancel Rate
   Definition:   Percentage of initiated switches that are cancelled
   Formula:      (Cancelled Switches / Total Switch Attempts) × 100
-  Target:       <10%
+- Target:       <10%
   Frequency:    Weekly
   Owner:        Product Manager
   Alert:        >20% suggests UX issue
@@ -664,80 +637,76 @@ KPI-006: Switch Cancel Rate
 KPI-007: Identity Mismatch Detection Rate
   Definition:   Percentage of submissions where mismatch warning triggered
   Formula:      (Submissions with warning / Total submissions) × 100
-  Target:       Decreasing trend over time
+- Target:       Decreasing trend over time
   Frequency:    Weekly
   Owner:        Clinical Lead
 
 KPI-008: Feature Adoption Rate
   Definition:   Percentage of eligible clinicians who have used fast switch
   Formula:      (Unique users of feature / Total WCP clinical users) × 100
-  Target:       50% within 3 months
+- Target:       50% within 3 months
   Frequency:    Monthly
   Owner:        Product Manager
 
-================================================================================
-7. TELEMETRY SPECIFICATION
-================================================================================
+## TELEMETRY SPECIFICATION
 
-7.1 Metrics
------------
+### 7.1 Metrics
 
 METRIC: user_switch_initiated
-  Type:         Counter
-  Description:  Number of user switch attempts initiated
-  Labels:       auth_method (smartcard, password), form_type, ward, health_board
-  Collection:   Increment on switch dialog open
-  Retention:    13 months
+- Type:         Counter
+- Description:  Number of user switch attempts initiated
+- Labels:       auth_method (smartcard, password), form_type, ward, health_board
+- Collection:   Increment on switch dialog open
+- Retention:    13 months
 
 METRIC: user_switch_completed
-  Type:         Counter
-  Description:  Number of user switches completed successfully
-  Labels:       auth_method, form_type, ward, health_board
-  Collection:   Increment on successful authentication
-  Retention:    13 months
+- Type:         Counter
+- Description:  Number of user switches completed successfully
+- Labels:       auth_method, form_type, ward, health_board
+- Collection:   Increment on successful authentication
+- Retention:    13 months
 
 METRIC: user_switch_failed
-  Type:         Counter
-  Description:  Number of user switch failures
-  Labels:       auth_method, failure_reason, form_type
-  Collection:   Increment on authentication failure
-  Retention:    13 months
+- Type:         Counter
+- Description:  Number of user switch failures
+- Labels:       auth_method, failure_reason, form_type
+- Collection:   Increment on authentication failure
+- Retention:    13 months
 
 METRIC: user_switch_cancelled
-  Type:         Counter
-  Description:  Number of user switches cancelled by user
-  Labels:       form_type, stage_cancelled (dialog, pin_entry, password_entry)
-  Collection:   Increment on cancel action
-  Retention:    13 months
+- Type:         Counter
+- Description:  Number of user switches cancelled by user
+- Labels:       form_type, stage_cancelled (dialog, pin_entry, password_entry)
+- Collection:   Increment on cancel action
+- Retention:    13 months
 
 METRIC: user_switch_duration_seconds
-  Type:         Histogram
-  Description:  Time taken to complete user switch
+- Type:         Histogram
+- Description:  Time taken to complete user switch
   Buckets:      [1, 2, 3, 5, 7, 10, 15, 20, 30, 60]
-  Labels:       auth_method, form_type
-  Collection:   Record on switch completion
-  Retention:    13 months
+- Labels:       auth_method, form_type
+- Collection:   Record on switch completion
+- Retention:    13 months
 
 METRIC: identity_mismatch_detected
-  Type:         Counter
-  Description:  Number of times identity mismatch warning shown
-  Labels:       form_type, user_action (switched, cancelled)
-  Collection:   Increment on warning display
-  Retention:    13 months
+- Type:         Counter
+- Description:  Number of times identity mismatch warning shown
+- Labels:       form_type, user_action (switched, cancelled)
+- Collection:   Increment on warning display
+- Retention:    13 months
 
 METRIC: form_data_fields_preserved
-  Type:         Gauge
-  Description:  Number of form fields preserved during switch
-  Labels:       form_type
-  Collection:   Record on switch completion
-  Retention:    13 months
+- Type:         Gauge
+- Description:  Number of form fields preserved during switch
+- Labels:       form_type
+- Collection:   Record on switch completion
+- Retention:    13 months
 
-7.2 Logs
---------
+### 7.2 Logs
 
 LOG: UserSwitchInitiated
-  Level:        INFO
-  Fields:
+- Level:        INFO
+- Fields:
     - timestamp: ISO 8601
     - correlation_id: UUID
     - session_id: Current session identifier
@@ -763,8 +732,8 @@ LOG: UserSwitchInitiated
     }
 
 LOG: UserSwitchCompleted
-  Level:        INFO
-  Fields:
+- Level:        INFO
+- Fields:
     - timestamp: ISO 8601
     - correlation_id: UUID (same as initiated)
     - previous_user_id: Hashed user identifier
@@ -786,8 +755,8 @@ LOG: UserSwitchCompleted
     }
 
 LOG: UserSwitchFailed
-  Level:        WARN
-  Fields:
+- Level:        WARN
+- Fields:
     - timestamp: ISO 8601
     - correlation_id: UUID
     - previous_user_id: Hashed user identifier
@@ -805,8 +774,8 @@ LOG: UserSwitchFailed
     - SYSTEM_ERROR: Unexpected system error
 
 LOG: UserSwitchCancelled
-  Level:        INFO
-  Fields:
+- Level:        INFO
+- Fields:
     - timestamp: ISO 8601
     - correlation_id: UUID
     - previous_user_id: Hashed user identifier
@@ -814,8 +783,8 @@ LOG: UserSwitchCancelled
     - time_in_dialog_ms: Time spent before cancelling
 
 LOG: IdentityMismatchDetected
-  Level:        WARN
-  Fields:
+- Level:        WARN
+- Fields:
     - timestamp: ISO 8601
     - correlation_id: UUID
     - session_user_id: Hashed current session user
@@ -823,12 +792,11 @@ LOG: IdentityMismatchDetected
     - form_type: Type of form
     - user_action: switch_initiated | cancelled
 
-7.3 Traces
-----------
+### 7.3 Traces
 
 TRACE: UserSwitchFlow
   Trace ID:     Generated at switch initiation
-  Description:  End-to-end trace of user switch process
+- Description:  End-to-end trace of user switch process
 
   Spans:
   
@@ -870,7 +838,7 @@ TRACE: UserSwitchFlow
 ----------
 
 EVENT: FeatureEnabled
-  Description:  Fast User Switching feature enabled for health board
+- Description:  Fast User Switching feature enabled for health board
   Attributes:
     - health_board_code
     - enabled_by
@@ -878,7 +846,7 @@ EVENT: FeatureEnabled
   Correlation:  Overlay on adoption metrics
 
 EVENT: FeatureDisabled
-  Description:  Fast User Switching feature disabled (emergency)
+- Description:  Fast User Switching feature disabled (emergency)
   Attributes:
     - health_board_code
     - disabled_by
@@ -887,7 +855,7 @@ EVENT: FeatureDisabled
   Correlation:  Overlay on error metrics
 
 EVENT: ConfigurationChange
-  Description:  Feature configuration changed
+- Description:  Feature configuration changed
   Attributes:
     - setting_name
     - old_value
@@ -899,7 +867,7 @@ EVENT: ConfigurationChange
     - smartcard_required changed
 
 EVENT: SecurityIncident
-  Description:  Security-related incident involving fast switch
+- Description:  Security-related incident involving fast switch
   Attributes:
     - incident_type
     - user_id
@@ -907,57 +875,53 @@ EVENT: SecurityIncident
     - severity
   Correlation:  Security dashboard, incident management
 
-================================================================================
-8. TEST AUTOMATION FRAMEWORK
-================================================================================
+## TEST AUTOMATION FRAMEWORK
 
-8.1 Test Categories
--------------------
+### 8.1 Test Categories
 
 CATEGORY: Unit Tests
-  Coverage Target:  90%
-  Scope:            Individual functions and methods
+- Coverage Target:  90%
+- Scope:            Individual functions and methods
   Execution:        On every commit
   Owner:            Development team
 
 CATEGORY: Integration Tests
-  Coverage Target:  80%
-  Scope:            Component interactions, API contracts
+- Coverage Target:  80%
+- Scope:            Component interactions, API contracts
   Execution:        On every pull request
   Owner:            Development team
 
 CATEGORY: End-to-End Tests
-  Coverage Target:  Critical paths 100%
-  Scope:            Full user journeys
+- Coverage Target:  Critical paths 100%
+- Scope:            Full user journeys
   Execution:        Nightly, pre-release
   Owner:            QA team
 
 CATEGORY: Security Tests
-  Coverage Target:  All authentication flows
-  Scope:            Authentication, authorisation, session management
+- Coverage Target:  All authentication flows
+- Scope:            Authentication, authorisation, session management
   Execution:        Weekly, pre-release
   Owner:            Security team
 
 CATEGORY: Performance Tests
-  Coverage Target:  All user-facing operations
-  Scope:            Response times, throughput, resource usage
+- Coverage Target:  All user-facing operations
+- Scope:            Response times, throughput, resource usage
   Execution:        Weekly, pre-release
   Owner:            Performance team
 
 CATEGORY: Accessibility Tests
-  Coverage Target:  WCAG 2.1 AA
-  Scope:            All UI components
+- Coverage Target:  WCAG 2.1 AA
+- Scope:            All UI components
   Execution:        On UI changes, pre-release
   Owner:            QA team
 
-8.2 Test Scenarios
-------------------
+### 8.2 Test Scenarios
 
-SCENARIO GROUP: Happy Path Tests
+#### SCENARIO GROUP: Happy Path Tests
 
 TEST: Successful smartcard switch with form preservation
-  Priority:     Critical
-  Steps:
+- Priority:     Critical
+- Steps:
     1. Sign in as User A
     2. Open patient record
     3. Begin electronic test request
@@ -969,8 +933,8 @@ TEST: Successful smartcard switch with form preservation
   Expected:     Request submitted under User B, all data preserved
 
 TEST: Successful password switch with form preservation
-  Priority:     Critical
-  Steps:
+- Priority:     Critical
+- Steps:
     1. Sign in as User A
     2. Enter data in form
     3. Click "Switch User"
@@ -981,8 +945,8 @@ TEST: Successful password switch with form preservation
   Expected:     Request submitted under User B
 
 TEST: Identity mismatch warning triggers switch
-  Priority:     Critical
-  Steps:
+- Priority:     Critical
+- Steps:
     1. Sign in as User A
     2. Enter test request with User B as requestor
     3. Click Submit
@@ -992,13 +956,11 @@ TEST: Identity mismatch warning triggers switch
     7. Verify submission completes
   Expected:     Warning prevents wrong submission, switch enables correct submission
 
---------------------------------------------------------------------------------
-
-SCENARIO GROUP: Error Handling Tests
+#### SCENARIO GROUP: Error Handling Tests
 
 TEST: Failed smartcard authentication allows retry
-  Priority:     High
-  Steps:
+- Priority:     High
+- Steps:
     1. Initiate user switch
     2. Enter incorrect PIN 1st time
     3. Verify error message
@@ -1009,8 +971,8 @@ TEST: Failed smartcard authentication allows retry
   Expected:     Clear error messages, retry available, eventual success
 
 TEST: Failed password authentication allows retry
-  Priority:     High
-  Steps:
+- Priority:     High
+- Steps:
     1. Initiate user switch
     2. Enter incorrect password
     3. Verify error message
@@ -1019,8 +981,8 @@ TEST: Failed password authentication allows retry
   Expected:     Clear error, retry works
 
 TEST: Cancel during authentication preserves original session
-  Priority:     High
-  Steps:
+- Priority:     High
+- Steps:
     1. Enter data in form
     2. Initiate switch
     3. Cancel before completing auth
@@ -1030,8 +992,8 @@ TEST: Cancel during authentication preserves original session
   Expected:     No disruption to original session
 
 TEST: Network failure during switch shows error and allows retry
-  Priority:     Medium
-  Steps:
+- Priority:     Medium
+- Steps:
     1. Initiate switch
     2. Simulate network failure
     3. Verify error message
@@ -1040,13 +1002,11 @@ TEST: Network failure during switch shows error and allows retry
     6. Verify success
   Expected:     Graceful error handling, data preserved
 
---------------------------------------------------------------------------------
-
-SCENARIO GROUP: Security Tests
+#### SCENARIO GROUP: Security Tests
 
 TEST: Cannot proceed with submission under wrong identity
-  Priority:     Critical
-  Steps:
+- Priority:     Critical
+- Steps:
     1. Sign in as User A
     2. Enter request with User B as requestor
     3. Click Submit
@@ -1055,8 +1015,8 @@ TEST: Cannot proceed with submission under wrong identity
   Expected:     No bypass of identity check
 
 TEST: Audit log captures all switch events
-  Priority:     Critical
-  Steps:
+- Priority:     Critical
+- Steps:
     1. Perform successful switch
     2. Query audit log
     3. Verify all required fields present
@@ -1066,29 +1026,27 @@ TEST: Audit log captures all switch events
   Expected:     Complete audit trail
 
 TEST: Session timeout during switch requires full re-authentication
-  Priority:     High
-  Steps:
+- Priority:     High
+- Steps:
     1. Initiate switch
     2. Wait for session timeout
     3. Attempt to complete auth
     4. Verify full login required
   Expected:     No security bypass via timeout
 
---------------------------------------------------------------------------------
-
-SCENARIO GROUP: Performance Tests
+#### SCENARIO GROUP: Performance Tests
 
 TEST: Switch completes within 10 seconds (P95)
-  Priority:     Critical
-  Steps:
+- Priority:     Critical
+- Steps:
     1. Execute 100 switches via smartcard
     2. Measure duration for each
     3. Calculate P95
   Expected:     P95 < 10 seconds
 
 TEST: Form state capture handles large forms
-  Priority:     Medium
-  Steps:
+- Priority:     Medium
+- Steps:
     1. Create form with 50 fields populated
     2. Include attached document
     3. Initiate switch
@@ -1097,79 +1055,72 @@ TEST: Form state capture handles large forms
   Expected:     Capture < 200ms, all data preserved
 
 TEST: Concurrent switches do not interfere
-  Priority:     Medium
-  Steps:
+- Priority:     Medium
+- Steps:
     1. Simulate 10 concurrent switches on different sessions
     2. Verify all complete independently
     3. Verify no data cross-contamination
   Expected:     Full isolation between switches
 
-================================================================================
-9. ROLLOUT PLAN
-================================================================================
+## ROLLOUT PLAN
 
-9.1 Phase 1: Internal Testing (Week 1-2)
-----------------------------------------
+Phase 1: Internal Testing (Week 1-2)
+
   - Deploy to development environment
   - Execute full test suite
   - Security review and penetration testing
   - Performance baseline establishment
   - Bug fixes and refinements
 
-9.2 Phase 2: Pilot (Week 3-4)
------------------------------
+Phase 2: Pilot (Week 3-4)
+
   - Deploy to single ward at pilot Health Board
   - 20-30 clinicians in controlled pilot
   - Daily feedback collection
   - Close monitoring of telemetry
   - Rapid iteration on issues
 
-9.3 Phase 3: Limited Rollout (Week 5-6)
----------------------------------------
+Phase 3: Limited Rollout (Week 5-6)
+
   - Expand to full pilot Health Board
   - Monitor KPIs against targets
   - Gather broader feedback
   - Training material refinement
 
-9.4 Phase 4: General Availability (Week 7+)
--------------------------------------------
+Phase 4: General Availability (Week 7+)
+
   - Phased rollout to remaining Health Boards
   - Feature flag controlled
   - 1 Health Board per week
   - Full monitoring throughout
 
-9.5 Rollback Plan
------------------
-  Trigger:      Critical bug, security issue, or KPI failure
-  Action:       Disable feature via feature flag (instant)
-  Recovery:     Users revert to previous sign-out/sign-in workflow
-  Data Impact:  None (form data handled normally)
-  Communication: Notify clinical leads within 1 hour
+Rollback Plan
 
-================================================================================
-10. APPENDICES
-================================================================================
+- Trigger:      Critical bug, security issue, or KPI failure
+- Action:       Disable feature via feature flag (instant)
+- Recovery:     Users revert to previous sign-out/sign-in workflow
+- Data Impact:  None (form data handled normally)
+- Communication: Notify clinical leads within 1 hour
 
-10.1 Glossary
--------------
-  ETR:          Electronic Test Request
-  WCP:          Welsh Clinical Portal
-  NHS Number:   National Health Service patient identifier
-  Smartcard:    NHS Identity smartcard for authentication
-  Health Board: NHS Wales regional health organisation
+## APPENDICES
 
-10.2 Related Documents
-----------------------
-  - WCP Technical Architecture
-  - NHS Wales Authentication Standards
-  - Clinical Safety Case Report
-  - Information Governance Impact Assessment
-  - Accessibility Conformance Report
 
-10.3 Change Log
----------------
+### 10.1 Glossary
+
+- ETR:          Electronic Test Request
+- WCP:          Welsh Clinical Portal
+- NHS Number:   National Health Service patient identifier
+- Smartcard:    NHS Identity smartcard for authentication
+- Health Board: NHS Wales regional health organisation
+
+### 10.2 Related Documents
+
+- WCP Technical Architecture
+- NHS Wales Authentication Standards
+- Clinical Safety Case Report
+- Information Governance Impact Assessment
+- Accessibility Conformance Report
+
+### 10.3 Change Log
+
   Version 1.0   January 2026    Initial draft
-  
-================================================================================
-                              END OF DOCUMENT
-================================================================================

@@ -60,7 +60,7 @@ The current operational frame is the **DHCW IMTP** (accepted by Welsh Government
 | Productivity / AI | "Year-on-year productivity improvements via AI & automation" | Mapped to Quadruple Aim | 4% productivity improvement, ≥1% cost reduction | Digital Innovation strand of NHS Recovery Plan 2021-26 |
 | Net zero | ≥34% carbon reduction by 2030 | NHS Wales decarb plan | Greener NHS targets | Climate emergency / NHS Scotland net zero |
 
-**What we can learn / steal:**
+**What we can learn:**
 
 - **From NHS England**: numeric, time-bounded percentage targets (e.g. "85% of trusts on FDP by March 2026", "4% productivity"). DHCW's wording today tends to be qualitative — adopting hard numbers improves the "Measurable" and "Timely" SMART axes.
 - **From NHS Scotland**: a publicly-staged MVP/limited cohort rollout pattern (Digital Front Door → Lanarkshire pilot → national). This pattern reduces escalation risk and is directly transferable to NHS Wales App feature rollouts.

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:dhcw.nhs.wales)",
+      "WebSearch",
+      "WebFetch(domain:htn.co.uk)"
+    ]
+  }
+}
